@@ -9,6 +9,7 @@ const MUTATION_PROYECTO = gql`
   }
 `;
 
+//Crear mutacion para crear usuario, cambiar por la de proyecto
 const CrearProyecto = () => {
   const [creadorDeProyecto] = useMutation(MUTATION_PROYECTO)
   let project = {
@@ -30,20 +31,24 @@ const CrearProyecto = () => {
               }})
           }} >
               <div>
-                  <label>Nombre Proyecto</label>
+                  <label>Nombre Usuario</label>
                   <input ref={nombre => project.nombreProyecto = nombre} placeholder="Nombre" />
               </div>
               <div>
-                  <label>Objetivos</label>
-                  <input ref={objetivos => project.objetivos = objetivos} placeholder="Objetivos" />
+                  <label>Idenfificacion</label>
+                  <input ref={objetivos => project.objetivos = objetivos} placeholder="Identificación" />
               </div>
               <div>
-                  <label>Lider</label>
-                  <input ref={lider => project.lider = lider} placeholder="Lider" />
+                  <label>Estado</label>
+                  <input ref={lider => project.lider = lider} placeholder="Estado" />
               </div>
               <div>
-                  <label>Presupuesto</label>
-                  <input ref={presupuesto => project.presupuesto = presupuesto} placeholder="Presupuesto" />
+                  <label>Email</label>
+                  <input ref={presupuesto => project.presupuesto = presupuesto} placeholder="Email" />
+              </div>
+              <div>
+                  <label>Rol</label>
+                  <input ref={presupuesto => project.presupuesto = presupuesto} placeholder="Rol" />
               </div>
               <div>
                   <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -91,6 +91,10 @@ nav a{
   border: #0a58ca;
 }
 
+.container-proyectos tb{
+  margin: .5rem;
+}
+
 
 /* MODAL crear proyecto */
 .container-new-projects form{

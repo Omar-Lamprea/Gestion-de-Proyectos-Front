@@ -43,16 +43,20 @@ const Proyectos = () => {
   return (
     <div>
       <section className="projects container-fluid d-flex flex-column">
-        <table className="table">
-          <tr>
-            <th>Lider</th>
-            <th>Nombre</th>
-            <th>Presupuesto</th>
-            <th>Estado</th>
-            <th>Objetivos Generales</th>
-            <th>Objetivos Especificos</th>
-          </tr>
-          {datosTabla}
+        <table className="table container-proyectos">
+          <thead>
+            <tr>
+              <th>Lider</th>
+              <th>Nombre</th>
+              <th>Presupuesto</th>
+              <th>Estado</th>
+              <th>Objetivos Generales</th>
+              <th>Objetivos Especificos</th>
+            </tr>
+          </thead>
+          <tbody>
+            {datosTabla}
+          </tbody>
         </table>
         <button className="btn btn-primary w-50 m-auto" data-bs-toggle="modal" data-bs-target="#addProject">Agregar proyecto nuevo</button>
         
