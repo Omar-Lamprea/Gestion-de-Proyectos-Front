@@ -39,7 +39,7 @@ const Usuario = ({ user }) => {
             <td>{user.rol}</td>
             <td>
                 <button className="btn btn-primary" onClick={activarUser}>Activar</button>
-                <button className="btn btn-primary" onClick={eliminarUser}>Eliminar</button>
+                <button className="btn btn-danger" onClick={eliminarUser}>Eliminar</button>
             </td>
         </tr>
     )

@@ -4,16 +4,15 @@ import {
 import React from "react";
 
 const MUTATION_PROYECTO = gql`
-    mutation creeProyecto($objGe:String,$presupuesto:Int, $nombreProyecto: String, $lider:String){
-        createProject(project:{nombre:$nombreProyecto,lider:$lider,objetivosGenerales:$objGe,presupuesto:$presupuesto})
-    }
-`;
+    mutation creeProyecto($objetivosGenerales:String,$presupuesto:Int, $nombre: String, $lider:String){
+        createProject(project:{nombre:$nombre,lider:$lider,objetivosGenerales:$objetivosGenerales,presupuesto:$presupuesto})
+    }`;
 
 const CrearProyecto = () => {
     const [creadorDeProyecto] = useMutation(MUTATION_PROYECTO)
     let project = {
-        nombreProyecto: "",
-        objetivos: "",
+        nombre: "",
+        objetivosGenerales: "",
         lider: "",
         presupuesto: 0,
     }
@@ -23,15 +22,15 @@ const CrearProyecto = () => {
             <form onSubmit={e => {
                 e.preventDefault();
                 creadorDeProyecto({variables:{
-                    objGe: project.objetivos.value,
+                    objetivosGenerales: project.objetivos.value,
                     presupuesto: parseInt(project.presupuesto.value),
-                    nombreProyecto: project.nombreProyecto.value,
+                    nombre: project.nombre.value,
                     lider: project.lider.value
                 }})
             }} >
                 <div>
                     <label>Nombre Proyecto</label>
-                    <input ref={nombre => project.nombreProyecto = nombre} placeholder="Nombre" />
+                    <input ref={nombre => project.nombre = nombre} placeholder="Nombre" />
                 </div>
                 <div>
                     <label>Objetivos</label>

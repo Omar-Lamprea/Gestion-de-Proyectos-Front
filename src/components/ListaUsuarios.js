@@ -33,7 +33,7 @@ const ListaUsuarios = () => {
     }
 
     return <div className="container-usuarios d-flex flex-column">
-        <table className="table">
+        <table className="table container-usuarios">
             <thead>
                 <tr>
                     <th>Nombre</th>

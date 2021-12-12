@@ -22,11 +22,14 @@ const Login = () =>{
   return(
     <>
       <section className="login">
-        <fomr>
+        <img src="./img/bg-login.jpg" />
+        <form>
           <input type="email" placeholder="Correo" id="email" required/>
           <input type="password" placeholder="Contraseña" id="pass" onKeyDown={enter} required/>
           <button type="submit" onClick={logIn} className="btn btn-success">Iniciar Sesión</button>
-        </fomr>
+          <p>correo: admin@gmail.com</p>
+          <p>pass: admin123</p>
+        </form>
       </section>
     </>
   )

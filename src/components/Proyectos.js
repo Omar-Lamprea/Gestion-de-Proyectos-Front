@@ -22,7 +22,7 @@ const Proyectos = () => {
   const { loading, error, data } = useQuery(PROYECTOS, {
     context: {
       headers: {
-        Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlc2l0byI6IkxpZGVyIiwiaWF0IjoxNjM5MTU1OTIxLCJleHAiOjE2MzkxNjMxMjF9.Us8dFXwdLw0FBg4RhSj7G5dViC62MhUdiw6_s5nj-Es'
+        Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlc2l0byI6IkxpZGVyIiwiaWF0IjoxNjM5MzQxNzE1LCJleHAiOjE2MzkzNDg5MTV9.s_O98hS6GZw2SOOxrmlUjC3ObsQ1ERF76lAN-6BQA3o'
       }
     }
   })
@@ -49,7 +49,7 @@ const Proyectos = () => {
             <th>Nombre</th>
             <th>Presupuesto</th>
             <th>Estado</th>
-            <th>Bbjetivos Generales</th>
+            <th>Objetivos Generales</th>
             <th>Objetivos Especificos</th>
           </tr>
           {datosTabla}
