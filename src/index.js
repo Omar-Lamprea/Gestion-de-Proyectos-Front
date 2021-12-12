@@ -14,17 +14,33 @@ import Proyectos from './components/Proyectos';
 import CrearProyecto from './components/CrearProyecto';
 import ListaUsuarios from './components/ListaUsuarios';
 import Home from './components/Home';
+import Login from './components/Login'
 
 const client = new ApolloClient({
   uri: 'http://localhost:9092/graphql',
   cache: new InMemoryCache()
 });
 
-localStorage.setItem('rol', '=)')
-
-
-
 const inicio = document.getElementById("root")
+
+let component;
+
+const auth = ()=>{
+  if(localStorage.getItem('rol')){
+    component =  <Home />;
+    // return component
+  }else{
+    component = <Login />;
+    // return component
+  }
+}
+auth()
+
+const logOut = ()=>{
+  localStorage.clear()
+  window.location.pathname = '/';
+}
+
 
 ReactDOM.render(
     <ApolloProvider client={client}>
@@ -46,15 +62,17 @@ ReactDOM.render(
                 </Link>
               </ul>
             </nav>
-            <div>
-              <i className="fas fa-user"></i>
+            <div className='d-flex flex-column justify-content-center align-items-center'>
+              <i className="fas fa-user my-3"></i>
+              <button className="btn btn-danger" onClick={logOut}>Cerrar Sesión</button>
             </div>
           </header>
         
         
           <section className='container my-5'>
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={component} />
+              <Route path="/login" element={component} />
               <Route path="/proyectos" element={<Proyectos />} />
               <Route path="/usuarios" element={<ListaUsuarios />} />
             </Routes>

@@ -39,6 +39,18 @@ nav a{
   justify-content: center;
   align-items: center;
 }
+.login{
+  position: absolute;
+  height: 100vh;
+  min-width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: azure;
+}
 
 .table tr{
   text-align: center;
