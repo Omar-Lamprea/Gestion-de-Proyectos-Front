@@ -72,7 +72,7 @@ ReactDOM.render(
           <section className='container my-5'>
             <Routes>
               <Route path="/" element={component} />
-              <Route path="/login" element={component} />
+              {/* <Route path="/login" element={component} /> */}
               <Route path="/proyectos" element={<Proyectos />} />
               <Route path="/usuarios" element={<ListaUsuarios />} />
             </Routes>
