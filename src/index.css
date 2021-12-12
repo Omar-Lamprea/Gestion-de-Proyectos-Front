@@ -1,0 +1,62 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #fefefe
+}
+
+main{
+  padding: 0;
+}
+
+.Menu{
+  background-color: #5fbeff;
+}
+
+.Menu .logo img{
+  width: 100px;
+}
+
+nav li{
+  color: #fff;
+  margin: 0 1rem;
+  list-style: none;
+  font-size: 2rem;
+}
+nav li:hover{
+  color:#000
+}
+nav a{
+  text-decoration: none;
+}
+
+
+.Home{
+  height: calc(100vh - 300px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table tr{
+  text-align: center;
+}
+/* MODAL crear proyecto */
+.container-new-projects form{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.container-new-projects form div{
+  display: flex;
+  justify-content: space-between;
+  margin: .5rem 2rem;
+}
+.container-new-projects form div:last-child{
+  justify-content: center;
+}
+.container-new-projects form div:last-child button{
+  margin: 0 1rem;
+}
