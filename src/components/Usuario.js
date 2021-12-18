@@ -1,8 +1,10 @@
 import { useMutation } from "@apollo/client"
 import gql from "graphql-tag"
+import { useState } from "react"
 
-const Usuario = ({ user }) => {
+const Usuario = ({ user, onUserChange }) => {
 
+    const [estadoUser, setEstadoUser] = useState(user.estado) 
     /*
         mutation{
             activeUser(identificacion:224465)
@@ -24,25 +26,23 @@ const Usuario = ({ user }) => {
 
     const activarUser = () => {
         activar({ variables: { identificacion: user.identificacion } })
+        estadoUser === 'Activo' ? setEstadoUser('Inactivo') : setEstadoUser('Activo')
     }
 
     const eliminarUser = () => {
         eliminar({ variables: { ident: user.identificacion } })
+        onUserChange()
     }
 
-    return (
-        <tr>
-            <td>{user.nombre}</td>
-            <td>{user.identificacion}</td>
-            <td>{user.estado}</td>
-            <td>{user.correo}</td>
-            <td>{user.rol}</td>
-            <td>
-                <button className="btn btn-primary" onClick={activarUser}>Activar</button>
-                <button className="btn btn-danger" onClick={eliminarUser}>Eliminar</button>
-            </td>
-        </tr>
-    )
+    return <tr>
+        <td>{user.nombre}</td>
+        <td>{user.identificacion}</td>
+        <td>{estadoUser}</td>
+        <td>{user.email}</td>
+        <td>{user.perfil}</td>
+        <td><button className="btn btn-primary" onClick={activarUser}>Activar</button>
+            <button className="btn btn-primary" onClick={eliminarUser}>Eliminar</button></td>
+    </tr>
 }
 
 export default Usuario

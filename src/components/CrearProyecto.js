@@ -4,53 +4,49 @@ import {
 import React from "react";
 
 const MUTATION_PROYECTO = gql`
-    mutation creeProyecto($objetivosGenerales:String,$presupuesto:Int, $nombre: String, $lider:String){
-        createProject(project:{nombre:$nombre,lider:$lider,objetivosGenerales:$objetivosGenerales,presupuesto:$presupuesto})
-    }`;
+    mutation creeProyecto($objGe:String,$presupuesto:Int, $nombreProyecto: String, $lider:String){
+        createProject(project:{nombre:$nombreProyecto,lider:$lider,objetivosGenerales:$objGe,presupuesto:$presupuesto})
+    }
+`;
 
 const CrearProyecto = () => {
     const [creadorDeProyecto] = useMutation(MUTATION_PROYECTO)
     let project = {
-        nombre: "",
-        objetivosGenerales: "",
+        nombreProyecto: "",
+        objetivos: "",
         lider: "",
         presupuesto: 0,
     }
 
-    return (
-        <div className="container-new-projects">
-            <form onSubmit={e => {
-                e.preventDefault();
-                creadorDeProyecto({variables:{
-                    objetivosGenerales: project.objetivos.value,
-                    presupuesto: parseInt(project.presupuesto.value),
-                    nombre: project.nombre.value,
-                    lider: project.lider.value
-                }})
-            }} >
-                <div>
-                    <label>Nombre Proyecto</label>
-                    <input ref={nombre => project.nombre = nombre} placeholder="Nombre" />
-                </div>
-                <div>
-                    <label>Objetivos</label>
-                    <input ref={objetivos => project.objetivos = objetivos} placeholder="Objetivos" />
-                </div>
-                <div>
-                    <label>Lider</label>
-                    <input ref={lider => project.lider = lider} placeholder="Lider" />
-                </div>
-                <div>
-                    <label>Presupuesto</label>
-                    <input ref={presupuesto => project.presupuesto = presupuesto} placeholder="Presupuesto" />
-                </div>
-                <div>
-                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" className="btn btn-success">Registrar Proyecto</button>
-                </div>
-            </form>
-        </div>
-    )
+    return (<div><h1>Crear Proyecto</h1>
+        <form onSubmit={e => {
+            e.preventDefault();
+            creadorDeProyecto({variables:{
+                objGe: project.objetivos.value,
+                presupuesto: parseInt(project.presupuesto.value),
+                nombreProyecto: project.nombreProyecto.value,
+                lider: project.lider.value
+            }})
+        }} >
+            <div className="form-group">
+                <label>Nombre Proyecto</label>
+                <input className="form-control" ref={nombre => project.nombreProyecto = nombre} placeholder="Nombre" />
+            </div>
+            <div className="form-group">
+                <label>Objetivos</label>
+                <input className="form-control" ref={objetivos => project.objetivos = objetivos} placeholder="Objetivos" />
+            </div>
+            <div className="form-group">
+                <label>Lider</label>
+                <input  className="form-control"ref={lider => project.lider = lider} placeholder="Lider" />
+            </div>
+            <div className="form-group">
+                <label>Presupuesto</label>
+                <input className="form-control" ref={presupuesto => project.presupuesto = presupuesto} placeholder="Presupuesto" />
+            </div>
+            <div><button className="btn btn-primary" type="submit">Registrar Proyecto</button></div>
+        </form>
+    </div>)
 }
 
 export default CrearProyecto
