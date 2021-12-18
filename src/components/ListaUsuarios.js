@@ -50,7 +50,7 @@ const ListaUsuarios = () => {
                 </table>
 
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newUser">
-                    Launch demo modal
+                    Crear nuevo usuario
                 </button>
 
                 <CrearUsuario/>

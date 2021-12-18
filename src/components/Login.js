@@ -2,6 +2,7 @@ import { useMutation } from "@apollo/client"
 import gql from "graphql-tag"
 import { useState } from "react";
 import { useHistory } from "react-router";
+import CrearUsuario from "./CrearUsuario";
 
 
 const Login = () => {
@@ -53,7 +54,10 @@ const Login = () => {
                     onChange={changeClave} />
                 <div className="d-flex flex-column">
                     <button className="btn btn-primary my-2" onClick={autenticar}>Iniciar Sessión</button>
-                    <button className="btn btn-primary my-2" onClick={registroUsuarioNuevo}>Registrate</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newUser">
+                        Crear nuevo usuario
+                    </button>
+                    <CrearUsuario/>
                 </div>
             </form>
         </div>
