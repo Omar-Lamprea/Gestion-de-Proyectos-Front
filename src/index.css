@@ -1,0 +1,122 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+p{
+  margin: 0;
+}
+body{
+  background-color: #fefefe
+}
+
+main{
+  padding: 0;
+}
+
+.Menu{
+  background-color: #5fbeff;
+}
+
+.Menu .logo img{
+  width: 100px;
+}
+
+nav li{
+  color: #fff;
+  margin: 0 1rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+nav a:hover{
+  color:#000
+}
+nav a{
+  color: #fff;
+  text-decoration: none;
+}
+
+
+.Home{
+  height: calc(100vh - 300px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.login{
+  position: absolute;
+  height: 100vh;
+  min-width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.login form{
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  border-radius: 5px;
+  background-color: #2a456073;
+  width: 500px;
+}
+.login form input{
+  margin: .5rem 0;
+  padding: .5rem;
+  border-radius: 5px;
+  border:none
+}
+.login img{
+  position: fixed;
+  height: 100%;
+}
+.login p{
+  color: #fff;
+}
+
+.container-main{
+  height: calc(100vh - 148px);
+}
+
+.table tr{
+  text-align: center;
+}
+
+.container-usuarios  td button{
+  margin: .5rem;
+}
+.container-usuarios  td button:first-child{
+  background-color: #22a5ff;
+  border: #22a5ff;
+}
+.container-usuarios  td button:first-child:hover{
+  background-color: #0b5ed7;
+  border: #0a58ca;
+}
+
+.container-proyectos tb{
+  margin: .5rem;
+}
+
+
+
+.container-new-projects form{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+.container-new-projects form div{
+  display: flex;
+  justify-content: space-between;
+  margin: .5rem 2rem;
+}
+.container-new-projects form div:last-child{
+  justify-content: center;
+}
+.container-new-projects form div:last-child button{
+  margin: 0 1rem;
+}

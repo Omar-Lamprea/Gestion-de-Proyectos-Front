@@ -40,21 +40,24 @@ const Login = () => {
     const registroUsuarioNuevo = () => {
         his.push("/usuario/registro")
     }
-    return <div>
-        <form>
-            <h3>Autenticar</h3>
-            <label htmlFor="username">Username</label>
-            <input type="text" placeholder="Email" id="username" ref={u => user = u} />
-            <label htmlFor="password">Password</label>
-            <input type="password" placeholder="Password" id="password"
-                value={pass}
-                onChange={changeClave} />
-
-            <button className="btn btn-primary" onClick={autenticar}>Log In</button>
-
-            <button className="btn btn-primary" onClick={registroUsuarioNuevo}>Registro Usuario Nuevo</button>
-        </form>
-    </div>
+    return (
+        <div className="login d-flex justify-content-center align-items-center">
+            <img src="./img/bg-login.jpg"></img>
+            <form>
+                <h3>Login</h3>
+                <label htmlFor="username">Username</label>
+                <input type="text" placeholder="Email" id="username" required ref={u => user = u} />
+                <label htmlFor="password">Password</label>
+                <input type="password" placeholder="Password" required id="password"
+                    value={pass}
+                    onChange={changeClave} />
+                <div className="d-flex flex-column">
+                    <button className="btn btn-primary my-2" onClick={autenticar}>Iniciar Sessión</button>
+                    <button className="btn btn-primary my-2" onClick={registroUsuarioNuevo}>Registrate</button>
+                </div>
+            </form>
+        </div>
+    )
 }
 
 export default Login

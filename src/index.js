@@ -9,15 +9,17 @@ import {
   HttpLink,
 } from "@apollo/client";
 
+import "./index.css";
+
 import Proyectos from './components/Proyectos';
 import CrearProyecto from './components/CrearProyecto';
 import Menu from './components/Menu';
 import ListaUsuarios from './components/ListaUsuarios';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NoExiste from './components/NoExiste';
-import Login from './components/Autenticar';
+import Login from './components/Login';
 import EditarProyecto from './components/EditarProyecto';
-import CrearUsuario from './components/CrearUsuario';
+// import CrearUsuario from './components/CrearUsuario';
 
 
 const httpLink = new HttpLink({ uri: 'http://localhost:9092/graphql' });
@@ -45,11 +47,11 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={Login} />
-        <Route exact path="/usuario/registro" component={CrearUsuario} />
         <Route exact path="/menu" component={Menu} />
-        <Route exact path="/usuario" component={ListaUsuarios} />
-        <Route exact path="/proyecto" component={CrearProyecto} />
         <Route exact path="/proyecto/listar" component={Proyectos} />
+        <Route exact path="/proyecto" component={CrearProyecto} />
+        <Route exact path="/usuario" component={ListaUsuarios} />
+        {/* <Route exact path="/usuario/registro" component={CrearUsuario} /> */}
         <Route exact path="/proyecto/:idProyecto" component={EditarProyecto} />
         <Route path="/" component={NoExiste} />
       </Switch>
