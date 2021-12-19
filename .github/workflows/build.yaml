@@ -13,7 +13,7 @@ jobs:
     - name: Build and Publish head Docker image
       uses: VaultVulp/gp-docker-action@1.2.0
       with:
-        image-name: gestion-de-proyectos-back
+        image-name: gestion-de-proyectos-front
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Deploy package to aws
       uses: appleboy/ssh-action@master
@@ -27,8 +27,8 @@ jobs:
         port: 22
         envs: GITHUB_USERNAME, GITHUB_TOKEN, OMAR_SSH_KEY
         script: |
-          docker stop gestion-de-proyectos-back
-          docker container rm gestion-de-proyectos-back
+          docker stop gestion-de-proyectos-front
+          docker container rm gestion-de-proyectos-front
           docker login ghcr.io -u Omar-Lamprea -p $GITHUB_TOKEN
-          docker pull ghcr.io/omar-lamprea/gestion-de-proyectos/gestion-de-proyectos-back:latest
-          docker run -d --restart unless-stopped -p 9092:9092 --name "gestion-de-proyectos-back" -e NODE_ENV=production ghcr.io/omar-lamprea/gestion-de-proyectos/gestion-de-proyectos-back:latest
+          docker pull ghcr.io/omar-lamprea/gestion-de-proyectos/gestion-de-proyectos-front:latest
+          docker run -d --restart unless-stopped -p 9092:9092 --name "gestion-de-proyectos-front" -e NODE_ENV=production ghcr.io/omar-lamprea/gestion-de-proyectos/gestion-de-proyectos-front:latest
