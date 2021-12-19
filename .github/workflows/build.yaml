@@ -31,4 +31,4 @@ jobs:
           docker container rm gestion-de-proyectos-front
           docker login ghcr.io -u Omar-Lamprea -p $GITHUB_TOKEN
           docker pull ghcr.io/omar-lamprea/gestion-de-proyectos/gestion-de-proyectos-front:latest
-          docker run -d --restart unless-stopped -p 8080:8080 --name "gestion-de-proyectos-front" -e NODE_ENV=production ghcr.io/omar-lamprea/gestion-de-proyectos/gestion-de-proyectos-front:latest
+          docker run -d --restart unless-stopped -p 8080:8080 --name "gestion-de-proyectos-front" -e NODE_ENV=production ghcr.io/omar-lamprea/gestion-de-proyectos-front/gestion-de-proyectos-front:latest
