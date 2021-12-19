@@ -22,7 +22,7 @@ import EditarProyecto from './components/EditarProyecto';
 // import CrearUsuario from './components/CrearUsuario';
 
 
-const httpLink = new HttpLink({ uri: 'http://localhost:9092/graphql' });
+const httpLink = new HttpLink({ uri: 'http://ec2-3-17-16-177.us-east-2.compute.amazonaws.com/graphql/' });
 
 const authLink = new ApolloLink((operation, forward) => {
   const token = localStorage.getItem('auth_token');

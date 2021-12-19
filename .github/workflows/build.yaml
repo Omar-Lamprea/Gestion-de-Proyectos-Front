@@ -1,0 +1,34 @@
+name: build-frontend
+
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build and Publish head Docker image
+      uses: VaultVulp/gp-docker-action@1.2.0
+      with:
+        image-name: gestion-de-proyectos-back
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Deploy package to aws
+      uses: appleboy/ssh-action@master
+      env:
+          GITHUB_USERNAME: ${{ secrets.USERNAME }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        host: ${{ secrets.OMAR_SSH_HOST }}
+        username: ${{ secrets.OMAR_SSH_USER }}
+        key: ${{ secrets.OMAR_SSH_KEY }}
+        port: 22
+        envs: GITHUB_USERNAME, GITHUB_TOKEN, OMAR_SSH_KEY
+        script: |
+          docker stop gestion-de-proyectos-back
+          docker container rm gestion-de-proyectos-back
+          docker login ghcr.io -u Omar-Lamprea -p $GITHUB_TOKEN
+          docker pull ghcr.io/omar-lamprea/gestion-de-proyectos/gestion-de-proyectos-back:latest
+          docker run -d --restart unless-stopped -p 9092:9092 --name "gestion-de-proyectos-back" -e NODE_ENV=production ghcr.io/omar-lamprea/gestion-de-proyectos/gestion-de-proyectos-back:latest
