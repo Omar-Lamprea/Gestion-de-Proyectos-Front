@@ -1,10 +1,7 @@
 import { useMutation } from "@apollo/client";
 import gql from "graphql-tag";
-// import { useHistory } from "react-router";
 
 const CrearUsuario = ()=>{
-
-//   const his = useHistory();
 
   let nombre, identificacion, clave, perfil, email
 

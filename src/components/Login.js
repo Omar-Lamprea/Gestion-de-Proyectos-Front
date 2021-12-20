@@ -38,9 +38,7 @@ const Login = () => {
             his.push("/menu")
         }
     }
-    // const registroUsuarioNuevo = () => {
-    //     his.push("/usuario/registro")
-    // }
+
     return (
         <div className="login d-flex justify-content-center align-items-center">
             <img src="./img/bg-login.jpg"></img>
