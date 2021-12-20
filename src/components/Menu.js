@@ -44,7 +44,6 @@ const MenuPrincipal = () => {
     his.push("/")
     return <div></div>
   }
-
 }
 
 export default MenuPrincipal
