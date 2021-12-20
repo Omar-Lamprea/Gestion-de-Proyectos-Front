@@ -18,14 +18,14 @@ const CrearProyecto = ()=>{
         presupuesto: 0,
     }
   return(
-      <div class="modal fade" id="newProject" tabindex="-1" aria-labelledby="newProjectLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="newProjectLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div className="modal fade" id="newProject" tabindex="-1" aria-labelledby="newProjectLabel" aria-hidden="true">
+      <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-content">
+          <div className="modal-header">
+            <h5 className="modal-title" id="newProjectLabel">Modal title</h5>
+            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div className="modal-body">
             <form onSubmit={e => {
                 e.preventDefault();
                 creadorDeProyecto({variables:{
@@ -51,12 +51,13 @@ const CrearProyecto = ()=>{
                     <label>Presupuesto</label>
                     <input className="form-control" ref={presupuesto => project.presupuesto = presupuesto} placeholder="Presupuesto" />
                 </div>
-                <div><button className="btn btn-primary" type="submit">Registrar Proyecto</button></div>
+                <div className="d-flex justify-content-end">
+                  <button className="btn btn-primary mx-2 mt-3" type="submit">Registrar Proyecto</button>
+                  <button type="button" className="btn btn-secondary mt-3" data-bs-dismiss="modal">Close</button>
+                </div>
             </form>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+          <div className="modal-footer">
           </div>
         </div>
       </div>

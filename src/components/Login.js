@@ -38,27 +38,29 @@ const Login = () => {
             his.push("/menu")
         }
     }
-    const registroUsuarioNuevo = () => {
-        his.push("/usuario/registro")
-    }
+    // const registroUsuarioNuevo = () => {
+    //     his.push("/usuario/registro")
+    // }
     return (
         <div className="login d-flex justify-content-center align-items-center">
             <img src="./img/bg-login.jpg"></img>
-            <form>
+            <form className="form-login">
                 <h3>Login</h3>
-                <label htmlFor="username">Username</label>
-                <input type="text" placeholder="Email" id="username" required ref={u => user = u} />
-                <label htmlFor="password">Password</label>
-                <input type="password" placeholder="Password" required id="password"
+                <label htmlFor="username">Correo</label>
+                <input type="text" id="username" required ref={u => user = u} />
+                <label htmlFor="password">Contraseña</label>
+                <input type="password" required id="password"
                     value={pass}
                     onChange={changeClave} />
                 <div className="d-flex flex-column">
                     <button className="btn btn-primary my-2" onClick={autenticar}>Iniciar Sessión</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newUser">
+                    <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newUser">
                         Crear nuevo usuario
                     </button>
                     <CrearUsuario/>
                 </div>
+                <p>Correo: admin@gmail.com</p>
+                <p>Contraseña: admin123</p>
             </form>
         </div>
     )

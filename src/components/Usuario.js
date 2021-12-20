@@ -40,8 +40,8 @@ const Usuario = ({ user, onUserChange }) => {
         <td>{estadoUser}</td>
         <td>{user.email}</td>
         <td>{user.perfil}</td>
-        <td><button className="btn btn-primary" onClick={activarUser}>Activar</button>
-            <button className="btn btn-primary" onClick={eliminarUser}>Eliminar</button></td>
+        <td><button className="btn btn-primary mx-2" onClick={activarUser}>Activar</button>
+            <button className="btn btn-danger mx-2" onClick={eliminarUser}>Eliminar</button></td>
     </tr>
 }
 

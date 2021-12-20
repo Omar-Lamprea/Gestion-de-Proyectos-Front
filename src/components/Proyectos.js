@@ -5,6 +5,7 @@ import {
 import { Link } from "react-router-dom";
 import Menu from './Menu';
 import CrearProyecto from './CrearProyecto'
+import Loading from "./Loading";
 
 const Proyectos = () => {
   const PROYECTOS = gql`
@@ -25,7 +26,11 @@ const Proyectos = () => {
       }
     }
   })
-  if (loading) return "<h1>Cargando</h1>"
+  if (loading){
+    return <div>
+            <Loading />
+        </div>
+  } 
   if (error) return "<h1>problemas con el server de graphql</h1>"
 
   const datosTabla = data.proyectos.map(({ lider, nombre, presupuesto, _id }) => (
@@ -55,7 +60,7 @@ const Proyectos = () => {
           </tbody>
         </table>
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newProject">
+        <button type="button" className="btn btn-success" data-bs-toggle="modal" data-bs-target="#newProject">
           Agregar proyecto nuevo
         </button>
 

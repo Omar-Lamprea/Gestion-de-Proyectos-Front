@@ -1,8 +1,9 @@
 import { useQuery } from "@apollo/client";
 import gql from "graphql-tag";
 import Usuario from "./Usuario";
-import Menu from './Menu'
-import CrearUsuario from './CrearUsuario'
+import Menu from './Menu';
+import CrearUsuario from './CrearUsuario';
+import Loading from './Loading';
 
 
 const ListaUsuarios = () => {
@@ -21,7 +22,7 @@ const ListaUsuarios = () => {
 
     if (loading) {
         return <div>
-            <p>Estoy cargando aún</p>
+            <Loading />
         </div>
     }
 
@@ -49,7 +50,7 @@ const ListaUsuarios = () => {
                     </thead>
                 </table>
 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#newUser">
+                <button type="button" className="btn btn-success m-3" data-bs-toggle="modal" data-bs-target="#newUser">
                     Crear nuevo usuario
                 </button>
 

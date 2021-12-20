@@ -37,9 +37,6 @@ const MenuPrincipal = () => {
           </ul>
           <button className="btn btn-danger" onClick={cerrar}>Cerrar sesión</button>
         </nav>
-        {/* <section className="container-main d-flex justify-content-center align-items-center">
-          <Home/>
-        </section> */}
       </div>
     )
   } else {

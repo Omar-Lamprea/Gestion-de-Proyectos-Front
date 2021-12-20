@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { useHistory } from "react-router";
 
 import {
   ApolloClient,
@@ -12,13 +13,13 @@ import {
 import "./index.css";
 
 import Proyectos from './components/Proyectos';
-import CrearProyecto from './components/CrearProyecto';
 import Menu from './components/Menu';
 import ListaUsuarios from './components/ListaUsuarios';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NoExiste from './components/NoExiste';
 import Login from './components/Login';
 import EditarProyecto from './components/EditarProyecto';
+// import CrearProyecto from './components/CrearProyecto';
 // import CrearUsuario from './components/CrearUsuario';
 
 
@@ -39,7 +40,6 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-
 const inicio = document.getElementById("root")
 
 ReactDOM.render(
@@ -49,9 +49,7 @@ ReactDOM.render(
         <Route exact path="/" component={Login} />
         <Route exact path="/menu" component={Menu} />
         <Route exact path="/proyecto/listar" component={Proyectos} />
-        <Route exact path="/proyecto" component={CrearProyecto} />
         <Route exact path="/usuario" component={ListaUsuarios} />
-        {/* <Route exact path="/usuario/registro" component={CrearUsuario} /> */}
         <Route exact path="/proyecto/:idProyecto" component={EditarProyecto} />
         <Route path="/" component={NoExiste} />
       </Switch>
