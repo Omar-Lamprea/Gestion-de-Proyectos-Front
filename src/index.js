@@ -18,8 +18,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import NoExiste from './components/NoExiste';
 import Login from './components/Login';
 import EditarProyecto from './components/EditarProyecto';
-// import CrearProyecto from './components/CrearProyecto';
-// import CrearUsuario from './components/CrearUsuario';
+
 
 
 const httpLink = new HttpLink({ uri: 'http://ec2-3-17-16-177.us-east-2.compute.amazonaws.com/graphql/' });
